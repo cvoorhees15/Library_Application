@@ -11,6 +11,9 @@ public class Library extends Book{
 	
 	// Open keyboard
 	Scanner keyboard = new Scanner(System.in);
+	
+	
+	// Menu functionality variables
 	int menuChoice = 0;
 	int pageNumber = 0;
 	int chapterNumber = 0;
@@ -21,230 +24,23 @@ public class Library extends Book{
 	String borrowRequest;
 	String returnTitle;
 	
-	// Declare new linked list 
-	LinkedList<Book> fiction = new LinkedList<Book>();
-	LinkedList<Book> nonfiction = new LinkedList<Book>();
-
-	// Create new Book objects 
-	
-	// Fiction
-	Book book1 = new Book();
-	Book book2 = new Book();
-	Book book3 = new Book();
-	Book book4 = new Book();
-	Book book5 = new Book();
-	Book book6 = new Book();
-	Book book7 = new Book();
-	Book book8 = new Book();
-	Book book9 = new Book();
-	Book book10 = new Book();
-	
-	// Nonfiction
-	Book book11 = new Book();
-	Book book12 = new Book();
-	Book book13 = new Book();
-	Book book14 = new Book();
-	Book book15 = new Book();
-	Book book16 = new Book();
-	Book book17 = new Book();
-	Book book18 = new Book();
-	Book book19 = new Book();
-	Book book20 = new Book();
 	
 	// User added books
 	Book newFiction = new Book();
 	Book newNonfiction = new Book();
 	
-	// Fill values into fiction books
 	
-	// Harry Potter
-	book1.setPages(373);
-	book1.setChapters(23);
-	book1.rating(8.7);
-	book1.copies(3);
-	book1.setGenre("Fantasy");
-	book1.setTitle("Harry Potter and the Chamber of Secrets");
-	
-	// The Hunger Games 
-	book2.setPages(265);
-	book2.setChapters(32);
-	book2.rating(7.6);
-	book2.copies(4);
-	book2.setGenre("Adventure");
-	book2.setTitle("The Hunger Games");
-	
-	// Twilight
-	book3.setPages(453);
-	book3.setChapters(41);
-	book3.rating(7.1);
-	book3.copies(1);
-	book3.setGenre("Romance");
-	book3.setTitle("Twilight");
-	
-	// The Great Gatsby 
-	book4.setPages(206);
-	book4.setChapters(19);
-	book4.rating(7.7);
-	book4.copies(7);
-	book4.setGenre("Tragedy");
-	book4.setTitle("The Great Gatsby");
-	
-	// Lord of The Flies
-	book5.setPages(276);
-	book5.setChapters(22);
-	book5.rating(9.4);
-	book5.copies(5);
-	book5.setGenre("Allegory");
-	book5.setTitle("Lord of The Flies");
-	
-	// The Hobbit
-	book6.setPages(379);
-	book6.setChapters(32);
-	book6.rating(9.1);
-	book6.copies(10);
-	book6.setGenre("Fantasy");
-	book6.setTitle("The Hobbit");
-	
-	// Lord of the Rings
-	book7.setPages(503);
-	book7.setChapters(45);
-	book7.rating(7.4);
-	book7.copies(3);
-	book7.setGenre("Fantasy");
-	book7.setTitle("Fellowship of the Ring");
-	
-	// The Giver
-	book8.setPages(189);
-	book8.setChapters(18);
-	book8.rating(6.8);
-	book8.copies(6);
-	book8.setGenre("Science Fiction");
-	book8.setTitle("The Giver");
-	
-	// Life of Pi
-	book9.setPages(315);
-	book9.setChapters(25);
-	book9.rating(7.2);
-	book9.copies(2);
-	book9.setGenre("Adventure");
-	book9.setTitle("Life of Pi");
-	
-	// Of Mice and Men
-	book10.setPages(143);
-	book10.setChapters(18);
-	book10.rating(6.5);
-	book10.copies(1);
-	book10.setGenre("Historical Fiction");
-	book10.setTitle("Of Mice and Men");
+	// Create fiction section
+	Fiction ficSection = new Fiction ();
+	ficSection.fillVlalues();
+	ficSection.addBooks();
 	
 	
-	// Add books to linked list fiction
-	fiction.add(book1);
-	fiction.add(book2);
-	fiction.add(book3);
-	fiction.add(book4);
-	fiction.add(book5);
-	fiction.add(book6);
-	fiction.add(book7);
-	fiction.add(book8);
-	fiction.add(book9);
-	fiction.add(book10);
+	// Create nonfiction section
+	Nonfiction nonficSection = new Nonfiction();
+	nonficSection.fillValues();
+	nonficSection.addBooks();
 	
-	
-	// Fill values into nonfiction books
-	
-	// Night
-	book11.setPages(231);
-	book11.setChapters(14);
-	book11.rating(7.8);
-	book11.copies(4);
-	book11.setGenre("Autobioraphy");
-	book11.setTitle("Night");
-	
-	// Friday Night Lights
-	book12.setPages(286);
-	book12.setChapters(27);
-	book12.rating(6.8);
-	book12.copies(7);
-	book12.setGenre("Bioraphy");
-	book12.setTitle("Friday Night Lights");
-	
-	// Into Thin Air
-	book13.setPages(342);
-	book13.setChapters(31);
-	book13.rating(5.9);
-	book13.copies(2);
-	book13.setGenre("Nonfiction");
-	book13.setTitle("Into Thin Air");
-	
-	// Life on the Mississippi
-	book14.setPages(402);
-	book14.setChapters(21);
-	book14.rating(6.3);
-	book14.copies(9);
-	book14.setGenre("Autobioraphy");
-	book14.setTitle("Life on the Mississippi");
-	
-	// Silent Spring
-	book15.setPages(308);
-	book15.setChapters(15);
-	book15.rating(6.0);
-	book15.copies(5);
-	book15.setGenre("Nonfiction");
-	book15.setTitle("Silent Spring");
-	
-	// The Omnivore's Dilemma
-	book16.setPages(578);
-	book16.setChapters(33);
-	book16.rating(6.7);
-	book16.copies(3);
-	book16.setGenre("Diet Book");
-	book16.setTitle("The Omnivore's Dilemma");
-	
-	// Goodbye to All That 
-	book17.setPages(328);
-	book17.setChapters(2);
-	book17.rating(7.3);
-	book17.copies(1);
-	book17.setGenre("Autobioraphy");
-	book17.setTitle("Goodbye to All That");
-	
-	// No Logo
-	book18.setPages(442);
-	book18.setChapters(21);
-	book18.rating(8.3);
-	book18.copies(10);
-	book18.setGenre("Nonfiction");
-	book18.setTitle("No Logo");
-	
-	// Fever Pitch
-	book19.setPages(234);
-	book19.setChapters(31);
-	book19.rating(9.3);
-	book19.copies(1);
-	book19.setGenre("Sports Nonfiction");
-	book19.setTitle("Fever Pitch");
-	
-	// Diary of Anne Frank
-	book20.setPages(167);
-	book20.setChapters(20);
-	book20.rating(8.9);
-	book20.copies(2);
-	book20.setGenre("Bioraphy");
-	book20.setTitle("Diary of Anne Frank");
-	
-	
-	// Add books to linked list nonfiction
-	nonfiction.add(book11);
-	nonfiction.add(book12);
-	nonfiction.add(book13);
-	nonfiction.add(book14);
-	nonfiction.add(book15);
-	nonfiction.add(book16);
-	nonfiction.add(book17);
-	nonfiction.add(book18);
-	nonfiction.add(book19);
-	nonfiction.add(book20);
 	
 	// APP
 	while(menuChoice != 15)
@@ -270,7 +66,7 @@ public class Library extends Book{
 	System.out.println("  13.) Sort nonfiction by length in pages");
 	System.out.println("  14.) Sort nonfiction alphabetically");
 	System.out.println("  15.) Exit");
-	System.out.println("  \n//:");
+	System.out.println("  \n//: ");
 	
 	
 	// Menu Functionality 

@@ -9,6 +9,32 @@ public class Book {
 	public String title;
 	public String genre;
 	public int borrowedCount = 0;
+	
+	// Fiction
+	static LinkedList<Book> fiction = new LinkedList<Book>();
+	static Book book1 = new Book();
+	static Book book2 = new Book();
+	static Book book3 = new Book();
+	static Book book4 = new Book();
+	static Book book5 = new Book();
+	static Book book6 = new Book();
+	static Book book7 = new Book();
+	static Book book8 = new Book();
+	static Book book9 = new Book();
+	static Book book10 = new Book();
+		
+	// Nonfiction
+	static LinkedList<Book> nonfiction = new LinkedList<Book>();
+	static Book book11 = new Book();
+	static Book book12 = new Book();
+	static Book book13 = new Book();
+	static Book book14 = new Book();
+	static Book book15 = new Book();
+	static Book book16 = new Book();
+	static Book book17 = new Book();
+	static Book book18 = new Book();
+	static Book book19 = new Book();
+	static Book book20 = new Book();
 
 	
 	public int setPages (int amount) {
