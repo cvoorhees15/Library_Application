@@ -2,16 +2,17 @@ import java.util.*;
 public class Book {
 
 	// Declare variables 
-	public int pageCount;
-	public int chapterCount;
+	public String pageCount;
+	public String chapterCount;
 	public int copies;
 	public double reviewScore;
 	public String title;
 	public String genre;
-	public int borrowedCount = 0;
+	public boolean borrowed = false;
 	
 	// Fiction
 	static LinkedList<Book> fiction = new LinkedList<Book>();
+	static Hashtable<String, String> fictionBooks = new Hashtable<String, String>();
 	static Book book1 = new Book();
 	static Book book2 = new Book();
 	static Book book3 = new Book();
@@ -25,6 +26,7 @@ public class Book {
 		
 	// Nonfiction
 	static LinkedList<Book> nonfiction = new LinkedList<Book>();
+	static Hashtable<String, String> nonfictionBooks = new Hashtable<String, String>();
 	static Book book11 = new Book();
 	static Book book12 = new Book();
 	static Book book13 = new Book();
@@ -36,22 +38,22 @@ public class Book {
 	static Book book19 = new Book();
 	static Book book20 = new Book();
 
-	
-	public int setPages (int amount) {
+	// Methods for books
+	public String setPages (String string) {
 		
-		pageCount = amount;
-		
-		return pageCount;
-	}
-	
-	public Integer getPages () {
+		pageCount = string;
 		
 		return pageCount;
 	}
 	
-	public int setChapters (int amount) {
+	public String getPages () {
 		
-		chapterCount = amount;
+		return pageCount;
+	}
+	
+	public String setChapters (String string) {
+		
+		chapterCount = string;
 		
 		return chapterCount;
 	}
@@ -102,7 +104,7 @@ public class Book {
 		{
 			this.copies--;
 			System.out.println("You have now borrowed " + title + ", " + copies + " copies remain.");	
-			this.borrowedCount ++;
+			this.borrowed = true;
 		}
 		else
 		{
@@ -113,11 +115,11 @@ public class Book {
 	
 	public void returnBook () {
 		
-		if (this.borrowedCount > 0)
+		if (this.borrowed = true)
 		{
 		System.out.println("Thank you for returning " + this.title);
 		this.copies++;
-		this.borrowedCount--;
+		this.borrowed = false;
 		}
 		else
 		{

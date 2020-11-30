@@ -15,8 +15,8 @@ public class Library extends Book{
 	
 	// Menu functionality variables
 	int menuChoice = 0;
-	int pageNumber = 0;
-	int chapterNumber = 0;
+	String pageNumber;
+	String chapterNumber;
 	int bookCopies = 0;
 	double bookRating = 0;
 	String bookGenre;
@@ -33,13 +33,13 @@ public class Library extends Book{
 	// Create fiction section
 	Fiction ficSection = new Fiction ();
 	ficSection.fillVlalues();
-	ficSection.addBooks();
+	ficSection.addFictionBooks();
 	
 	
 	// Create nonfiction section
 	Nonfiction nonficSection = new Nonfiction();
 	nonficSection.fillValues();
-	nonficSection.addBooks();
+	nonficSection.addNonfictionBooks();
 	
 	
 	// APP
@@ -57,15 +57,17 @@ public class Library extends Book{
 	System.out.println("  5.) Sort fiction by best rated");
 	System.out.println("  6.) Sort fiction by length in pages");
 	System.out.println("  7.) Sort fiction alphabetically");
+	System.out.println("  8.) Clear fiction section");
 	System.out.println("  \nNonfiction:");
-	System.out.println("  8.) Add nonfiction book");
-	System.out.println("  9.) Return nonfiction book");
-	System.out.println("  10.) Borrow nonfiction book");
-	System.out.println("  11.) Show all nonfiction books");
-	System.out.println("  12.) Sort nonfiction by best rated");
-	System.out.println("  13.) Sort nonfiction by length in pages");
-	System.out.println("  14.) Sort nonfiction alphabetically");
-	System.out.println("  15.) Exit");
+	System.out.println("  9.) Clear nonfiction Section");
+	System.out.println("  10.) Add nonfiction book");
+	System.out.println("  11.) Return nonfiction book");
+	System.out.println("  12.) Borrow nonfiction book");
+	System.out.println("  13.) Show all nonfiction books");
+	System.out.println("  14.) Sort nonfiction by best rated");
+	System.out.println("  15.) Sort nonfiction by length in pages");
+	System.out.println("  16.) Sort nonfiction alphabetically");
+	System.out.println("  17.) Exit");
 	System.out.println("  \n//: ");
 	
 	
@@ -77,11 +79,13 @@ public class Library extends Book{
 		
 		// Create new book and fill it with info
 		System.out.println("\nHow many pages in this new book?");
-		pageNumber = keyboard.nextInt();
+		pageNumber = keyboard.next();
+		keyboard.nextLine();
 		newFiction.setPages(pageNumber);
 		
 		System.out.println("\nHow many chapters in this new book?");
-		chapterNumber = keyboard.nextInt();
+		chapterNumber = keyboard.next();
+		keyboard.nextLine();
 		newFiction.setChapters(chapterNumber);
 		
 		System.out.println("\nWhat is your rating out of 10 for this new book?");
@@ -334,14 +338,26 @@ public class Library extends Book{
 		break;
 		
 	case 8:
+		fiction.clear();
+		
+		break;
+		
+	case 9:
+		nonfiction.clear();
+		
+		break;
+		
+	case 10:
 		
 		// Create new book and fill it with info
 		System.out.println("\nHow many pages in this new book?");
-		pageNumber = keyboard.nextInt();
+		pageNumber = keyboard.next();
+		keyboard.nextLine();
 		newNonfiction.setPages(pageNumber);
 		
 		System.out.println("\nHow many chapters in this new book?");
-		chapterNumber = keyboard.nextInt();
+		chapterNumber = keyboard.next();
+		keyboard.nextLine();
 		newNonfiction.setChapters(chapterNumber);
 				
 		System.out.println("\nWhat is your rating out of 10 for this new book?");
@@ -357,7 +373,7 @@ public class Library extends Book{
 		bookTitle = keyboard.nextLine();
 		newNonfiction.setTitle(bookTitle);
 		
-		System.out.println("/nHow many copies are you adding to the library?");
+		System.out.println("\nHow many copies are you adding to the library?");
 		bookCopies = keyboard.nextInt();
 		newNonfiction.copies(bookCopies);
 				
@@ -367,7 +383,7 @@ public class Library extends Book{
 
 		break;
 		
-	case 9:
+	case 11:
 		
 		// Return book if its been borrowed
 		System.out.println("\nWhat is the title of the book you'd like to return?");
@@ -426,7 +442,7 @@ public class Library extends Book{
 		
 		break;
 		
-	case 10:
+	case 12:
 		
 		// Search for a book to borrow
 		System.out.println("\nWhat book would you like to borrow?");
@@ -485,7 +501,7 @@ public class Library extends Book{
 		
 		break;
 		
-	case 11:
+	case 13:
 		
 		System.out.println("\nNight" );
 		System.out.println("Pages: " + book11.pageCount);
@@ -577,7 +593,7 @@ public class Library extends Book{
 		
 		break;
 		
-	case 12:
+	case 14:
 		
 		Collections.sort(nonfiction, compareByRating);
 		System.out.println("\nNonfiction section sorted by rating (lowest to highest): ");
@@ -585,7 +601,7 @@ public class Library extends Book{
 		
 		break;
 		
-	case 13:
+	case 15:
 		
 		Collections.sort(nonfiction, compareByPages);
 		System.out.println("\nNonfiction section sorted by page count (lowest to highest): ");
@@ -593,7 +609,7 @@ public class Library extends Book{
 		
 		break;
 		
-	case 14:
+	case 16:
 		
 		Collections.sort(nonfiction, compareByTitle);
 		System.out.println("\nNonfiction section sorted alphabetically (a-z): ");
@@ -601,7 +617,7 @@ public class Library extends Book{
 		
 		break;
 		
-	case 15:
+	case 17:
 		System.out.println("Exit Library");
 		break;
 	}
